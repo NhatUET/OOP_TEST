@@ -15,22 +15,22 @@ public class PhanTu <T extends Comparable<T>> {
         String s = "";
         List<Integer> res = new ArrayList<Integer>();
         while (br.readLine() != null) {
-            res.add(Integer.parseInt(s));
+            s = br.readLine();
+            res.add(Integer.valueOf(s));
         }
         Collections.sort(res);
         File outPut = new File(output);
         FileWriter fw = new FileWriter(output);
         BufferedWriter bw = new BufferedWriter(fw);
         for (Integer re : res) {
-            s += re.toString() + " ";
+            s = String.valueOf(re);
+            bw.write(s + " ");
         }
         bw.flush();
         bw.close();
     }
 
     public static void main(String[] args) throws IOException {
-        String in = args[0];
-        String out = args[1];
-        readWriteFile(in, out);
+        readWriteFile(args[0], args[1]);
     }
 }
